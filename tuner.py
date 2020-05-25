@@ -28,7 +28,7 @@ def validate(fit_model,epochs):
 
 
 # Loading Mnist dataset from keras.datasets 
-(X_train, Y_train),(X_test, Y_test)=mnist.load_data()
+(X_train, Y_train),(X_test, Y_test)=mnist.load_data('/storage/mnist.npz')
 
 # changinging dimensions to 28*28 and datatype to float
 X_test=X_test.reshape(-1,28*28)
