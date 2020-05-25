@@ -21,14 +21,14 @@ def validate(fit_model,epochs):
     hist=fit_model.history
     accuracy = hist['accuracy'][epochs-1]*100
     #accuracy = int(accuracy)
-    with open('file','w+') as f:
+    with open('/storage/file','w+') as f:
         f.write(str(accuracy))
     return accuracy
 
 
 
 # Loading Mnist dataset from keras.datasets 
-(X_train, Y_train),(X_test, Y_test)=mnist.load_data(path=current_dir+'/mnist.npz')
+(X_train, Y_train),(X_test, Y_test)=mnist.load_data()
 
 # changinging dimensions to 28*28 and datatype to float
 X_test=X_test.reshape(-1,28*28)
@@ -62,4 +62,4 @@ while int(acc)<95:
     print("Automatically tuning of parameters with test ID. = ",test," and accuracy = ",round(acc,2),"%")
     f=True
 print("Saving the model as the accuracy becomes greater than 95%")
-model.save('trained_model.h5')
+model.save('/storage/trained_model.h5')

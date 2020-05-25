@@ -12,8 +12,7 @@ import os
 current_dir = os.getcwd()
 
 # Loading Mnist dataset from keras.datasets 
-(X_train, Y_train),(X_test, Y_test)=mnist.load_data(path=current_dir+'/mnist.npz')
-
+(X_train, Y_train),(X_test, Y_test)=mnist.load_data()
 # changinging dimensions to 28*28 and datatype to float
 X_test = X_test.reshape(-1,28*28)
 X_test = X_test.astype('float32')
@@ -37,11 +36,11 @@ hist=fit_model.history
 # Extracting accuracy from the accuracy metrics and also rounding off it.
 acc = hist['accuracy'][1]*100
 acc = int(acc)
-with open('file','w+') as f:
+with open('/storage/file','w+') as f:
     f.write(str(acc))
 print("Manual training using hardcoded hyper-parameter, test ID = 1 and accuracy = ",acc, "%")
 if int(acc)>95:
-    model.save('trained_model.h5')
+    model.save('/storage/trained_model.h5')
     print("model is saved as the accuracy was greater than 95 %")
 else:
     print("model was not saved as the accuracy was lesser than 95%")
