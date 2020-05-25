@@ -19,11 +19,11 @@ def trainModel(numUnits,model,numEpochs,test):
 
 def validate(fit_model,epochs):
     hist=fit_model.history
-    accuracy = hist['accuracy'][epochs-1]*100
-    #accuracy = int(accuracy)
+    acc=hist['accuracy'][epochs-1]*100
+    acc=int(acc)
     with open('/storage/file','w+') as f:
-        f.write(str(accuracy))
-    return accuracy
+        f.write(str(acc))
+    return acc
 
 
 
