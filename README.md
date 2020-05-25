@@ -1,6 +1,5 @@
-# Integrating-DevOps-with-ML
-Integration of DevOps tools with ML for autotuning the hyperparameters of the learning model.
-
+# Integration of DevOps tools with ML for autotuning the hyperparameters of the learning model.
+![Jobs](/images/view.jpg)
 ### Task description
 
 1. Create container image that’s has Python3 and Keras or numpy  installed  using dockerfile 
@@ -15,8 +14,23 @@ Integration of DevOps tools with ML for autotuning the hyperparameters of the le
 
 6. Job3 : Train your model and predict accuracy or metrics.
 
-7. Job4 : if metrics accuracy is less than 80%  , then tweak the machine learning model architecture.
+7. Job4 : if metrics accuracy is less than 95%  , then tweak the machine learning model architecture.
 
 8. Job5: Retrain the model or notify that the best model is being created
 
-9.	Create One extra job job6 for monitor : If container where app is running. fails due to any reason then this job should automatically start the container again from where the last trained model left
+9. Create One extra job job6 for monitor : If container where app is running. fails due to any reason then this job should automatically start the container again from where the last trained model left.
+
+For the required container images:-
+```# docker build -t  username/image:tag  .  ```
+
+Now Create jobs for building job chaining.
+### Solutions for above tasks:-
+
+### Job1
+For github-webhooks's payload url, use ngrok or any other tunneling to create a tunnel which gives you a random public url binded through a publicIP behind the scene.
+```#./ngrok http 8080```
+![ngrok](/images/ngrok.jpg)
+
+Then go to your repo->settings->Webhooks.
+![Job1](/images/job1.jpg)
+
