@@ -1,5 +1,5 @@
 # Integration of DevOps tools with ML for autotuning the hyperparameters of the learning model.
-![Jobs](/images/view.jpg)
+![Jobs](/images/pipeline.jpg)
 ### Task description
 
 1. Create container image that’s has Python3 and Keras or numpy  installed  using dockerfile 
@@ -21,18 +21,45 @@
 9. Create One extra job job6 for monitor : If container where app is running. fails due to any reason then this job should automatically start the container again from where the last trained model left.
 
 For the required container images:-
-```# docker build -t  username/image:tag  .  ```
-
+```
+# docker build -t  username/image:tag  .  
+```
 Now Create jobs for building job chaining.
 ### Solutions for above tasks:-
 
 ### Job1
 For github-webhooks's payload url, use ngrok or any other tunneling to create a tunnel which gives you a random public url binded through a publicIP behind the scene.
-```#./ngrok http 8080```
-![ngrok](/images/ngrok.jpg)
+```
+# ./ngrok http 8080
+```
+![ngrok](/images/ngrok.png)
+![github-webhook](/images/github-webhook.png)
 
 Then go to your repo->settings->Webhooks.
-![Job1](/images/job1.jpg)
+![Job1.1](/images/j1.1.png)
+![Job1.2](/images/j1.2.png)
 
 ### Job2
 
+![Job2.1](/images/j2.1.png)
+![Job2.2](/images/j2.2.png)
+
+### Job3
+
+![Job3.1](/images/j3.1.png)
+![Job3.2](/images/j3.2.png)
+
+### Job4
+
+![Job4.1](/images/j4.1.png)
+![Job4.2](/images/j4.2.png)
+
+### Job5
+
+![Job5.1](/images/j5.1.png)
+![Job5.2](/images/j5.2.png)
+
+### Job6
+
+![Job6.1](/images/j6.1.png)
+![Job6.2](/images/j6.2.png)
