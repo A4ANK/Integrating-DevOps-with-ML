@@ -33,33 +33,38 @@ For github-webhooks's payload url, use ngrok or any other tunneling to create a 
 # ./ngrok http 8080
 ```
 ![ngrok](/images/ngrok.png)
-![github-webhook](/images/github-webhook.png)
-
 Then go to your repo->settings->Webhooks.
+![github-webhook](/images/github-webhook.png)
+Jenkins job1
 ![Job1.1](/images/j1.1.png)
 ![Job1.2](/images/j1.2.png)
 
 ### Job2
+This job will either trigger when the container is not launched then it will launch or it will be triggered when job1 will be built successfully.
 
 ![Job2.1](/images/j2.1.png)
 ![Job2.2](/images/j2.2.png)
 
 ### Job3
+This job will be triggered when the job2 will be built successfully. This job trains the model for the first time and checks whether the accuracy of the model is greater than 95% or not. If it is greater than 95 % then it will save the model at the mounted location.
 
 ![Job3.1](/images/j3.1.png)
 ![Job3.2](/images/j3.2.png)
 
 ### Job4
+This job will be triggered when the job3 will be built successfully. This job checks whether the accuracy of the model is greater than 95% or not. If it is greater than 95 % then it will do nothing otherwise it will run another training of the model for tuning and tweaking with the hyper-parameters of the model to make the accuracy of the model >95.
 
 ![Job4.1](/images/j4.1.png)
 ![Job4.2](/images/j4.2.png)
 
 ### Job5
+This job will be triggered when the job4 will be built successfully. This job checks whether the accuracy of the model is greater than 95% or not after tweaking the model. If it is greater than 95 % then it will do notify and send a mail otherwise it will do nothing.
 
 ![Job5.1](/images/j5.1.png)
 ![Job5.2](/images/j5.2.png)
 
 ### Job6
+This job will be triggered using PollSCM as it works on the crontab features that are fitted to it. It will check as the container is stopped then relaunch it by triggering job2 otherwise do nothing.
 
 ![Job6.1](/images/j6.1.png)
 ![Job6.2](/images/j6.2.png)
